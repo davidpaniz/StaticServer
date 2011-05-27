@@ -1,5 +1,5 @@
 class StaticServer
-  def self.configure(base_dir = nil)
+  def self.start(base_dir = nil)
     config = StaticConfig.new(base_dir)
 
     yield config if block_given?
@@ -13,10 +13,10 @@ class StaticServer
           end
 
           if env["PATH_INFO"] == '/'
-            env["PATH_INFO"] = options[:root]
+            env["PATH_INFO"] = config.root
           end
 
-          Rack::File.new("./#{options[:base_dir]}").call(env)
+          Rack::File.new("./#{config.base_dir}").call(env)
         end
       }
 

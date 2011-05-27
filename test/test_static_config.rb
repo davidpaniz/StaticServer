@@ -51,5 +51,3 @@ class StaticConfigTest < Test::Unit::TestCase
 
 
 end
-
-
