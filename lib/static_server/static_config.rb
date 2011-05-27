@@ -1,26 +1,30 @@
 class StaticConfig
-  def initialize
-    @redirect = {}
-    @forward = {}
+  attr_reader :base_dir, :forwards, :redirects
+  def initialize(base_dir = nil)
+    @base_dir = base_dir
+    @base_dir ||= 'public'
+
+    @redirects = {}
+    @forwards = {}
+    @root = 'index.html'
   end
 
   def redirect(opt)
     validate_params(opt)
-    @redirect.merge! opt 
+    @redirects.merge! opt
   end
+
   def forward(opt)
     validate_params(opt)
-    @forward.merge! opt 
+    @forwards.merge! opt
   end
 
-  def forwards
-    @forward
+  def root(path = nil)
+    @root = path if path
+    @root
   end
 
-  def redirects
-    @redirect
-  end
-  private
+ private
   def validate_params(opt)
     raise "Invalid param" if opt.size != 1
   end
