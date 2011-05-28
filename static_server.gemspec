@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'static_server'
-  s.version     = '0.0.1'
-  s.date        = '2011-05-26'
+  s.version     = '0.0.2'
+  s.date        = '2011-05-28'
   s.summary     = "A simple way to provide static files using rack"
   s.description = "A simple way to provide static files using rack"
   s.authors     = ["David Paniz"]
